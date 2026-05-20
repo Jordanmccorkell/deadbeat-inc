@@ -46,15 +46,18 @@
     z-index: 50;
   }
   .db-logo {
-    font-family: 'Metal Mania', cursive;
-    font-size: 32px;
-    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
     line-height: 1;
+    color: var(--bone);
+    transition: color 0.2s;
   }
-  .db-logo .inc {
-    color: var(--blood);
-    margin-left: 4px;
-  }
+  .db-logo svg { height: 64px; width: auto; display: block; }
+  .db-logo .logo-thorn { stroke: currentColor; fill: none; stroke-linecap: square; stroke-linejoin: miter; }
+  .db-logo .logo-text { fill: currentColor; font-family: 'UnifrakturMaguntia', 'Pirata One', serif; }
+  .db-logo .logo-inc { fill: var(--blood); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.45em; }
+  .db-logo .logo-bar { stroke: currentColor; }
+  .db-logo:hover .logo-thorn { stroke: var(--blood); }
   .db-menu {
     display: flex;
     gap: 36px;
@@ -497,13 +500,12 @@
   .footer-top .brand-block {
     max-width: 420px;
   }
-  .footer-logo {
-    font-family: 'Metal Mania', cursive;
-    font-size: 48px;
-    line-height: 1;
-    margin-bottom: 24px;
-  }
-  .footer-logo .inc { color: var(--blood); }
+  .footer-logo { line-height: 1; margin-bottom: 24px; display: inline-block; color: var(--bone); }
+  .footer-logo svg { height: 96px; width: auto; display: block; }
+  .footer-logo .logo-thorn { stroke: currentColor; fill: none; stroke-linecap: square; }
+  .footer-logo .logo-text { fill: currentColor; font-family: 'UnifrakturMaguntia', 'Pirata One', serif; }
+  .footer-logo .logo-inc { fill: var(--blood); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.45em; }
+  .footer-logo .logo-bar { stroke: currentColor; }
   .footer-tag {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
@@ -595,7 +597,30 @@
 <body>
 
 <nav class="db-nav">
-  <a href="#" class="db-logo">DeadBeat<span class="inc">Inc.</span></a>
+  <a href="#" class="db-logo" aria-label="Deadbeat Inc.">
+    <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg" role="img">
+      <g class="logo-thorn" stroke-width="2">
+        <path d="M 18 55 L 50 55"/>
+        <path d="M 18 55 L 8 45 L 14 55 L 8 65 Z"/>
+        <path d="M 28 55 L 22 40 M 28 55 L 22 70"/>
+        <path d="M 40 55 L 34 38 M 40 55 L 34 72 M 40 55 L 46 30 M 40 55 L 46 80"/>
+        <path d="M 50 55 L 60 48 L 62 55 L 60 62 Z"/>
+        <path d="M 60 55 L 80 55"/>
+      </g>
+      <text class="logo-text" x="280" y="70" text-anchor="middle" font-size="62">DeadBeat</text>
+      <g class="logo-thorn" stroke-width="2">
+        <path d="M 542 55 L 510 55"/>
+        <path d="M 542 55 L 552 45 L 546 55 L 552 65 Z"/>
+        <path d="M 532 55 L 538 40 M 532 55 L 538 70"/>
+        <path d="M 520 55 L 526 38 M 520 55 L 526 72 M 520 55 L 514 30 M 520 55 L 514 80"/>
+        <path d="M 510 55 L 500 48 L 498 55 L 500 62 Z"/>
+        <path d="M 500 55 L 480 55"/>
+      </g>
+      <line class="logo-bar" x1="200" y1="92" x2="248" y2="92" stroke-width="1"/>
+      <text class="logo-inc" x="280" y="96" text-anchor="middle" font-size="11">I N C .</text>
+      <line class="logo-bar" x1="312" y1="92" x2="360" y2="92" stroke-width="1"/>
+    </svg>
+  </a>
   <ul class="db-menu">
     <li><a href="#drop">Drop 003</a></li>
     <li><a href="#pit">The Pit</a></li>
@@ -739,63 +764,4 @@
       <span class="status departed">Departed</span>
     </li>
     <li class="calendar-row departed">
-      <span class="date">11.21.2025</span>
-      <span class="drop">Drop 002 — Mass For The Dead</span>
-      <span class="city">Limited / 200 — Melbourne</span>
-      <span class="status departed">Departed</span>
-    </li>
-    <li class="calendar-row live">
-      <span class="date">05.24.2026</span>
-      <span class="drop">Drop 003 — Architect Ov Flesh</span>
-      <span class="city">Limited / 200 — Melbourne</span>
-      <span class="status live">Live now</span>
-    </li>
-    <li class="calendar-row">
-      <span class="date">08.??.2026</span>
-      <span class="drop">Drop 004 — Funeral Doom</span>
-      <span class="city">Limited / 200 — Melbourne</span>
-      <span class="status tba">Sign up for first dibs</span>
-    </li>
-  </ul>
-</section>
-
-<footer>
-  <div class="footer-top">
-    <div class="brand-block">
-      <div class="footer-logo">DeadBeat<span class="inc">Inc.</span></div>
-      <div class="footer-tag">/ Hand-made in Naarm / Melbourne since 2025</div>
-      <form class="footer-news" onsubmit="event.preventDefault()">
-        <input type="email" placeholder="Your email">
-        <button type="submit">Join →</button>
-      </form>
-    </div>
-    <div class="footer-col">
-      <h4>/ Shop</h4>
-      <ul>
-        <li><a href="#">Latest drop</a></li>
-        <li><a href="#">All products</a></li>
-        <li><a href="#">Doom Vault</a></li>
-        <li><a href="#">Gift cards</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>/ Cult</h4>
-      <ul>
-        <li><a href="#">Manifesto</a></li>
-        <li><a href="#">Founding members</a></li>
-        <li><a href="#">Drop calendar</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>/ Channels</h4>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">TikTok</a></li>
-        <li><a href="#">Bandcamp</a></li>
-        <li><a href="#">YouTube</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 202
+      <span class="date">11.21.20
